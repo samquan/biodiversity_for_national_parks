@@ -23,8 +23,6 @@ species.fillna('No Intervention', inplace = True)
 
 conservation_counts_fixed = species.groupby('conservation_status').scientific_name.nunique().reset_index()
 
-species.fillna('No Intervention', inplace = True)
-
 species['is_protected'] = species.conservation_status != 'No Intervention'
 
 category_counts = species.groupby(['category', 'is_protected']).scientific_name.nunique().reset_index()
@@ -55,10 +53,6 @@ print(pval_reptile_mammal)
 # pval_reptile_mammal < 0.05
 
 # Part 2
-
-import codecademylib
-import pandas as pd
-from matplotlib import pyplot as plt
 
 species = pd.read_csv('species_info.csv')
 species.fillna('No Intervention', inplace = True)
